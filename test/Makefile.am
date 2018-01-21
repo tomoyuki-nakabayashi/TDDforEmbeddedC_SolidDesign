@@ -19,20 +19,7 @@ gtest_CPPFLAGS = \
 
 test_sources = \
   TestMain.cpp \
-  LightSchedulerTest.cpp \
-  LightSchedulerRandomizeTest.cpp \
-  LightControllerSpyTest.cpp \
-  LightControllerSpy.c \
-  FakeTimeServiceTest.cpp \
-  FakeTimeService.c \
-  RandomMinuteTest.cpp \
-  FakeRandomMinute.c \
-  mocks/FormatOutputSpyTest.cpp \
-  mocks/FormatOutputSpy.c \
-  util/CircularBufferPrintTest.cpp
+  LightController.cpp
 target_sources = \
-  $(top_srcdir)/src/LightScheduler.c \
-  $(top_srcdir)/src/RandomMinute.c \
-  $(top_srcdir)/src/util/Utils.c \
-  $(top_srcdir)/src/util/CircularBuffer.c
+  $(top_srcdir)/src/LightController.c
 gtest_SOURCES = $(test_sources) $(target_sources)
