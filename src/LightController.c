@@ -1,6 +1,6 @@
 #include "LightController.h"
 #include "X10LightDriver.h"
-#include <typeint.h>
+#include <stddef.h>
 
 static LightDriver lightDrivers[MAX_LIGHTS] = {NULL};
 
@@ -19,10 +19,10 @@ static void destroy(LightDriver driver) {
       break;
     case AcmeWireless:
       break;
-    case MemoryMappe:
+    case MemoryMapped:
       break;
     case TestLightDriver:
-      LightDriverSpy_Destroy(drivere);
+      LightDriverSpy_Destroy(driver);
       break;
     default:
       break;
@@ -32,13 +32,13 @@ static void destroy(LightDriver driver) {
 void LightController_Destroy()
 {
   for (int i = 0; i < MAX_LIGHTS; i++) {
-    LightDriver driver = lightDriver[i];
+    LightDriver driver = lightDrivers[i];
     destroy(driver);
     lightDrivers[i] = NULL;
   }
 }
 
-void LightController_On(int id)
+void LightController_TurnOn(int id)
 {
   LightDriver driver = lightDrivers[id];
   if (driver == NULL) return;
@@ -49,16 +49,16 @@ void LightController_On(int id)
       break;
     case AcmeWireless:
       break;
-    case MemoryMappe:
+    case MemoryMapped:
       break;
     case TestLightDriver:
-      LightDriverSpy_TurnOn(drivere);
+      LightDriverSpy_TurnOn(driver);
       break;
     default:
       break;
   }
 }
 
-void LightController_Off(int id)
+void LightController_TurnOff(int id)
 {
 }
