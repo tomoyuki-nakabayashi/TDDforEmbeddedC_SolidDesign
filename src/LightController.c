@@ -61,4 +61,21 @@ void LightController_TurnOn(int id)
 
 void LightController_TurnOff(int id)
 {
+  LightDriver driver = lightDrivers[id];
+  if (driver == NULL) return;
+
+  switch (driver->type) {
+    case X10:
+      X10LightDriver_TurnOff(driver);
+      break;
+    case AcmeWireless:
+      break;
+    case MemoryMapped:
+      break;
+    case TestLightDriver:
+      LightDriverSpy_TurnOff(driver);
+      break;
+    default:
+      break;
+  }
 }

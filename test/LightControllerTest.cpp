@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 extern "C" {
   #include "LightController.h"
+  #include "LightDriver.h"
 }
 
 namespace light_controller_test{

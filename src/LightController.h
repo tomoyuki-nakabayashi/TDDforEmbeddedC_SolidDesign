@@ -1,6 +1,7 @@
 #ifndef SRC_LIGHT_CONTROLLER_H_
 #define SRC_LIGHT_CONTROLLER_H_
 
+#include <stdbool.h>
 #include "LightDriver.h"
 
 enum {MAX_LIGHTS = 32};
