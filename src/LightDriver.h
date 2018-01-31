@@ -8,7 +8,7 @@ typedef enum LightDriverType {
   X10,
   AcmeWireless,
   MemoryMapped
-} LightDriverTyep;
+} LightDriverType;
 
 typedef struct LightDriverStruct {
   LightDriverType type;

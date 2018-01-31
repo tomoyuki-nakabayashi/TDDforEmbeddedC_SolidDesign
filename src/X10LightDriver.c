@@ -1,4 +1,5 @@
 #include "X10LightDriver.h"
+#include <stdlib.h>
 
 typedef struct X10LightDriverStruct *X10LightDriver;
 typedef struct X10LightDriverStruct {
@@ -32,9 +33,14 @@ LightDriver X10LightDriver_Create(int id, X10_HouseCode house, uint32_t unit) {
   return (LightDriver)self;
 }
 
+void X10LightDriver_Destroy(LightDriver self)
+{
+  free(self);
+}
+
 void X10LightDriver_TurnOn(LightDriver base) {
   X10LightDriver self = (X10LightDriver)base;
-  formatTrunOnMessage(self);
+  formatTurnOnMessage(self);
   sendMessage(self);
 }
 

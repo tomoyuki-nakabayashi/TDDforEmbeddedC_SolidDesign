@@ -20,6 +20,6 @@ enum {
   LIGHT_STATE_UNKNOWN = -1,
   LIGHT_OFF = 0,
   LIGHT_ON = 1
-}
+};
 
 #endif  // TEST_LIGHT_DRIVER_SPY_H_

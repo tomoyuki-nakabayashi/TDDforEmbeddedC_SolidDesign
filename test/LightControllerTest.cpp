@@ -18,6 +18,6 @@ class LightControllerTest : public ::testing::Test
 
 TEST_F(LightControllerTest, FirstTest)
 {
-  EXPECT_EQ(true);
+  EXPECT_TRUE(true);
 }
 }  // namespace light_controller_test

@@ -19,7 +19,10 @@ gtest_CPPFLAGS = \
 
 test_sources = \
   TestMain.cpp \
-  LightController.cpp
+  LightControllerTest.cpp \
+  LightDriverSpyTest.cpp \
+  LightDriverSpy.c
 target_sources = \
-  $(top_srcdir)/src/LightController.c
+  $(top_srcdir)/src/LightController.c \
+  $(top_srcdir)/src/X10LightDriver.c
 gtest_SOURCES = $(test_sources) $(target_sources)

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "LightScheduler.h"
+#include "LightController.h"
 
 int main(void)
 {
