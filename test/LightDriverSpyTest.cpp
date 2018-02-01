@@ -4,18 +4,28 @@ extern "C" {
 }
 
 namespace light_driver_spy_test{
+constexpr int kTestId = 3;
+
 class LightDriverSpyTest : public ::testing::Test
 {
+ protected:
     virtual void SetUp()
     {
+      LightDriverSpy_Reset();
+      LightDriver spy_ = LightDriverSpy_Create(kTestId);
     }
     virtual void TearDown()
     {
+      LightDriverSpy_Destroy(spy_);
     }
+
+ protected:
+    LightDriver spy_;
 };
 
-TEST_F(LightDriverSpyTest, FirstTest)
+TEST_F(LightDriverSpyTest, On)
 {
-  EXPECT_TRUE(true);
+  LightDriverSpy_TurnOn(spy_);
+  EXPECT_EQ(LIGHT_ON, LightDriverSpy_GetState(kTestId));
 }
 }  // namespace light_driver_spy_test

@@ -40,3 +40,14 @@ void LightDriverSpy_TurnOff(LightDriver super) {
   LightDriverSpy self = (LightDriverSpy)super;
   save(self->base.id, LIGHT_OFF);
 }
+
+void LightDriverSpy_Reset() {
+  for (int i = 0; i < MAX_LIGHTS; i++)
+    states[i] = LIGHT_STATE_UNKNOWN;
+  lastId = LIGHT_ID_UNKNOWN;
+  lastState = LIGHT_STATE_UNKNOWN;
+}
+
+int LightDriverSpy_GetState(int id) {
+  return states[id];
+}
