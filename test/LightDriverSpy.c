@@ -51,3 +51,13 @@ void LightDriverSpy_Reset() {
 int LightDriverSpy_GetState(int id) {
   return states[id];
 }
+
+void LightDriverSpy_AddSpiesToController(void)
+{
+  int i;
+  for (i = 0; i < MAX_LIGHTS; i++)
+  {
+    LightDriver spy = (LightDriver)LightDriverSpy_Create(i);
+    LightController_Add(i, spy);
+  }
+}

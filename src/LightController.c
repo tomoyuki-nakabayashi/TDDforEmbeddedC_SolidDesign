@@ -1,6 +1,8 @@
 #include "LightController.h"
+#include <stdlib.h>
+#include <memory.h>
 #include "X10LightDriver.h"
-#include <stddef.h>
+#include "LightDriverSpy.h"
 
 static LightDriver lightDrivers[MAX_LIGHTS] = {NULL};
 
@@ -36,6 +38,17 @@ void LightController_Destroy()
     destroy(driver);
     lightDrivers[i] = NULL;
   }
+}
+
+bool LightController_Add(int id, LightDriver lightDriver)
+{
+  if (id < 0 || id >= MAX_LIGHTS)
+    return false;
+
+  destroy(lightDrivers[id]);
+
+  lightDrivers[id] = lightDriver;
+  return true;
 }
 
 void LightController_TurnOn(int id)

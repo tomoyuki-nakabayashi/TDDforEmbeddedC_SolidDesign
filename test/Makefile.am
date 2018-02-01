@@ -15,7 +15,8 @@ gtest_CPPFLAGS = \
   -I$(top_srcdir)/googletest/googlemock \
   -I$(top_srcdir)/googletest/googlemock/include \
   -pthread \
-  -I$(top_srcdir)/src
+  -I$(top_srcdir)/src \
+  -std=c++11
 
 test_sources = \
   TestMain.cpp \
