@@ -21,6 +21,7 @@ gtest_CPPFLAGS = \
 test_sources = \
   TestMain.cpp \
   LightControllerTest.cpp \
+  LightDriverTest.cpp \
   LightDriverSpyTest.cpp \
   LightDriverSpy.c
 target_sources = \
