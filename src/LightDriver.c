@@ -15,3 +15,7 @@ void LightDriver_TurnOn(LightDriver self) {
 void LightDriver_TurnOff(LightDriver self) {
   interface->TurnOff(self);
 }
+
+void LightDriver_Destroy(LightDriver self) {
+  interface->Destroy(self);
+}

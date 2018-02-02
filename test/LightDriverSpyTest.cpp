@@ -16,7 +16,7 @@ class LightDriverSpyTest : public ::testing::Test
     }
     virtual void TearDown()
     {
-      LightDriverSpy_Destroy(spy_);
+      LightDriver_Destroy(spy_);
     }
 
  protected:
