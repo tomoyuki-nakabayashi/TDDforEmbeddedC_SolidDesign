@@ -41,6 +41,16 @@ void LightDriverSpy_TurnOff(LightDriver super) {
   save(self->base.id, LIGHT_OFF);
 }
 
+static LightDriverInterfaceStruct interface = {
+  LightDriverSpy_TurnOn,
+  0,
+  0
+};
+
+void LightDriverSpy_InstallInterface(void) {
+  LightDriver_SetInterface(interface);
+}
+
 void LightDriverSpy_Reset() {
   for (int i = 0; i < MAX_LIGHTS; i++)
     states[i] = LIGHT_STATE_UNKNOWN;
@@ -52,8 +62,7 @@ int LightDriverSpy_GetState(int id) {
   return states[id];
 }
 
-void LightDriverSpy_AddSpiesToController(void)
-{
+void LightDriverSpy_AddSpiesToController(void) {
   int i;
   for (i = 0; i < MAX_LIGHTS; i++)
   {
@@ -61,3 +70,4 @@ void LightDriverSpy_AddSpiesToController(void)
     LightController_Add(i, spy);
   }
 }
+

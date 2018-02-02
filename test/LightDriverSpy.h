@@ -1,6 +1,6 @@
 #ifndef TEST_LIGHT_DRIVER_SPY_H_
 #define TEST_LIGHT_DRIVER_SPY_H_
-#include "LightDriver.h"
+#include "LightDriverPrivate.h"
 #include "LightController.h"
 
 LightDriver LightDriverSpy_Create(int id);
@@ -12,6 +12,7 @@ void LightDriverSpy_TurnOff(LightDriver);
 void LightDriverSpy_Reset(void);
 int LightDriverSpy_GetState(int id);
 void LightDriverSpy_AddSpiesToController(void);
+void LightDriverSpy_InstallInterface(void);
 
 enum {
   LIGHT_ID_UNKNOWN = -1,
