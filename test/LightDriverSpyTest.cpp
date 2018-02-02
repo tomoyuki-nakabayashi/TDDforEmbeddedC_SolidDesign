@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 extern "C" {
+  #include "LightDriver.h"
   #include "LightDriverSpy.h"
 }
 
@@ -28,7 +29,6 @@ TEST_F(LightDriverSpyTest, Create) {
 
 TEST_F(LightDriverSpyTest, On) {
   LightDriver_TurnOn(spy_);
-  //LightDriverSpy_TurnOn(spy_);
   EXPECT_EQ(LIGHT_ON, LightDriverSpy_GetState(1));
 }
 

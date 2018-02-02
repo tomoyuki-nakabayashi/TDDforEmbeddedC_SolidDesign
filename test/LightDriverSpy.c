@@ -48,7 +48,7 @@ static LightDriverInterfaceStruct interface = {
 };
 
 void LightDriverSpy_InstallInterface(void) {
-  LightDriver_SetInterface(interface);
+  LightDriver_SetInterface(&interface);
 }
 
 void LightDriverSpy_Reset() {

@@ -19,5 +19,6 @@ typedef struct LightDriverStruct {
 
 void LightDriver_SetInterface(LightDriverInterface i);
 void LightDriver_TurnOn(LightDriver self);
+void LightDriver_TurnOff(LightDriver self);
 
 #endif  // SRC_LIGHT_DRIVER_H_

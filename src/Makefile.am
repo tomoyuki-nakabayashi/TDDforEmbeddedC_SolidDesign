@@ -6,4 +6,6 @@ lightscheduler_CFLAGS = \
 lightscheduler_SOURCES = \
   main.c \
   LightController.c \
-  X10LightDriver.c
+  LightDriver.c \
+  X10LightDriver.c \
+  $(top_srcdir)/test/LightDriverSpy.c

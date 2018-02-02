@@ -11,3 +11,7 @@ void LightDriver_SetInterface(LightDriverInterface i) {
 void LightDriver_TurnOn(LightDriver self) {
   interface->TurnOn(self);
 }
+
+void LightDriver_TurnOff(LightDriver self) {
+  interface->TurnOff(self);
+}

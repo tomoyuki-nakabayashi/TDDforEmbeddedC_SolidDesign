@@ -25,5 +25,6 @@ test_sources = \
   LightDriverSpy.c
 target_sources = \
   $(top_srcdir)/src/LightController.c \
+  $(top_srcdir)/src/LightDriver.c \
   $(top_srcdir)/src/X10LightDriver.c
 gtest_SOURCES = $(test_sources) $(target_sources)
