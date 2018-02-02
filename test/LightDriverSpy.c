@@ -43,7 +43,7 @@ void LightDriverSpy_TurnOff(LightDriver super) {
 
 static LightDriverInterfaceStruct interface = {
   LightDriverSpy_TurnOn,
-  0,
+  LightDriverSpy_TurnOff,
   0
 };
 

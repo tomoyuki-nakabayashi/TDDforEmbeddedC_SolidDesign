@@ -32,4 +32,8 @@ TEST_F(LightDriverSpyTest, On) {
   EXPECT_EQ(LIGHT_ON, LightDriverSpy_GetState(1));
 }
 
+TEST_F(LightDriverSpyTest, Off) {
+  LightDriver_TurnOff(spy_);
+  EXPECT_EQ(LIGHT_OFF, LightDriverSpy_GetState(1));
+}
 }  // namespace light_driver_spy_test
