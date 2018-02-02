@@ -14,6 +14,8 @@ class LightControllerTest : public ::testing::Test
     {
       LightController_Create();
       LightDriverSpy_AddSpiesToController();
+      LightDriverSpy_InstallInterface();
+      LightDriverSpy_Reset();
     }
     virtual void TearDown()
     {
