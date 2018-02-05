@@ -1,4 +1,5 @@
 #include "CountingLightDriver.h"
+#include <stdlib.h>
 
 typedef struct CountingLightDriverStruct *CountingLightDriver;
 typedef struct CountingLightDriverStruct {
@@ -13,20 +14,20 @@ static void count(LightDriver base) {
 
 LightDriver CountingLightDriver_Create(int id) {
   CountingLightDriver self = calloc(1, sizeof(CountingLightDriverStruct));
-  self->base.type = CountingLightDriver;
+  self->base.type = "CountingLightDriver";
   self->base.id = id;
   return (LightDriver)self;
 }
 
-void destroy(LightDriver base) {
+static void destroy(LightDriver base) {
   free(base);
 }
 
-void turnOn(LightDriver base) {
+static void turnOn(LightDriver base) {
   count(base);
 }
 
-void turnOff(LightDriver base) {
+static void turnOff(LightDriver base) {
   count(base);
 }
 

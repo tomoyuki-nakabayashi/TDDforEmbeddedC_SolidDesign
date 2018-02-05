@@ -13,12 +13,12 @@ static int lastState;
 
 LightDriver LightDriverSpy_Create(int id) {
   LightDriverSpy self = calloc(1, sizeof(LightDriverSpyStruct));
-  self->base.type = TestLightDriver;
+  self->base.type = "TestLightDriver";
   self->base.id = id;
   return (LightDriver)self;
 }
 
-void destroy(LightDriver base) {
+static void destroy(LightDriver base) {
   free(base);
 }
 
@@ -29,12 +29,12 @@ static void update(int id, int state)
   lastState = state;
 }
 
-void turnOn(LightDriver base) {
+static void turnOn(LightDriver base) {
   LightDriverSpy self = (LightDriverSpy)base;
   update(self->base.id, LIGHT_ON);
 }
 
-void turnOff(LightDriver base) {
+static void turnOff(LightDriver base) {
   LightDriverSpy self = (LightDriverSpy)base;
   update(self->base.id, LIGHT_OFF);
 }

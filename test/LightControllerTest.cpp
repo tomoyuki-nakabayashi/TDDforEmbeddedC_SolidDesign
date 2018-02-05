@@ -3,6 +3,7 @@ extern "C" {
   #include "LightController.h"
   #include "LightDriver.h"
   #include "LightDriverSpy.h"
+  #include "CountingLightDriver.h"
 }
 
 namespace light_controller_test{
@@ -32,7 +33,7 @@ TEST_F(LightControllerTest, TurnOn)
 }
 
 TEST_F(LightControllerTest, TurnOnDifferentDriverTypes) {
-  LightDriver_otherDriver = CountingLightDriver_Create(5);
+  LightDriver otherDriver = CountingLightDriver_Create(5);
   LightController_Add(5, otherDriver);
   LightController_TurnOn(7);
   LightController_TurnOn(5);

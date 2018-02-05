@@ -23,7 +23,8 @@ test_sources = \
   LightControllerTest.cpp \
   LightDriverTest.cpp \
   LightDriverSpyTest.cpp \
-  LightDriverSpy.c
+  LightDriverSpy.c \
+  CountingLightDriver.c
 target_sources = \
   $(top_srcdir)/src/LightController.c \
   $(top_srcdir)/src/LightDriver.c \
