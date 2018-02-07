@@ -12,30 +12,23 @@ static void count(LightDriver base) {
   self->counter++;
 }
 
-LightDriver CountingLightDriver_Create(int id) {
-  CountingLightDriver self = calloc(1, sizeof(CountingLightDriverStruct));
-  self->base.type = "CountingLightDriver";
-  self->base.id = id;
-  return (LightDriver)self;
-}
-
 static void destroy(LightDriver base) {
   free(base);
 }
 
-static void turnOn(LightDriver base) {
-  count(base);
-}
-
-static void turnOff(LightDriver base) {
-  count(base);
-}
-
 static LightDriverInterfaceStruct interface = {
   .Destroy = destroy,
-  .TurnOn = turnOn,
-  .TurnOff = turnOff
+  .TurnOn = count,
+  .TurnOff = count
 };
+
+LightDriver CountingLightDriver_Create(int id) {
+  CountingLightDriver self = calloc(1, sizeof(CountingLightDriverStruct));
+  self->base.vtable = &interface;
+  self->base.type = "CountingLightDriver";
+  self->base.id = id;
+  return (LightDriver)self;
+}
 
 int CountingLightDriver_GetCallCount(LightDriver base) {
   CountingLightDriver self = (CountingLightDriver)base;

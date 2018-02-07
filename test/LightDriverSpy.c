@@ -11,13 +11,6 @@ static int states[MAX_LIGHTS];
 static int lastId;
 static int lastState;
 
-LightDriver LightDriverSpy_Create(int id) {
-  LightDriverSpy self = calloc(1, sizeof(LightDriverSpyStruct));
-  self->base.type = "TestLightDriver";
-  self->base.id = id;
-  return (LightDriver)self;
-}
-
 static void destroy(LightDriver base) {
   free(base);
 }
@@ -45,8 +38,12 @@ static LightDriverInterfaceStruct interface = {
   .TurnOff = turnOff
 };
 
-void LightDriverSpy_InstallInterface(void) {
-  LightDriver_SetInterface(&interface);
+LightDriver LightDriverSpy_Create(int id) {
+  LightDriverSpy self = calloc(1, sizeof(LightDriverSpyStruct));
+  self->base.vtable = &interface;
+  self->base.type = "Spy";
+  self->base.id = id;
+  return (LightDriver)self;
 }
 
 void LightDriverSpy_Reset() {

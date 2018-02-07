@@ -12,7 +12,6 @@ class LightDriverSpyTest : public ::testing::Test
     {
       LightDriverSpy_Reset();
       spy_ = LightDriverSpy_Create(1);
-      LightDriverSpy_InstallInterface();
     }
     virtual void TearDown()
     {

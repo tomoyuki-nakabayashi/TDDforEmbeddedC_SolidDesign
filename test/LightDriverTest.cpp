@@ -16,7 +16,7 @@ class LightDriverTest : public ::testing::Test
  public:
     LightDriverTest()
         : interface_ {shouldNotBeCalled, shouldNotBeCalled, shouldNotBeCalled}
-        , test_driver_ {TestLightDriver, 13} {
+        , test_driver_ {nullptr, "TestLightDriver", 13} {
 
     }
  protected:
@@ -32,7 +32,6 @@ class LightDriverTest : public ::testing::Test
 };
 
 TEST_F(LightDriverTest, NullDriverDoesNotCrash) {
-  LightDriver_SetInterface(&interface_);
   LightDriver_TurnOn(NULL);
   LightDriver_TurnOff(NULL);
   LightDriver_Destroy(NULL);
@@ -40,7 +39,6 @@ TEST_F(LightDriverTest, NullDriverDoesNotCrash) {
 }
 
 TEST_F(LightDriverTest, NullInterfaceDoesNotCrash) {
-  LightDriver_SetInterface(NULL);
   LightDriver_TurnOn(&test_driver_);
   LightDriver_TurnOff(&test_driver_);
   LightDriver_Destroy(&test_driver_);
