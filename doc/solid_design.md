@@ -25,7 +25,7 @@ class MemoryMappedLightDriver {
 }
 
 LightScheduler --> LightControllerInterface
-LightControllerInterface <|.. LightController:<<implementes>>
+LightControllerInterface <|.. LightController:<<implements>>
 LightController --> LightDriverSpy
 LightController --> X10LightDriver
 LightController --> AcmeWirelessLightDriver
@@ -69,12 +69,12 @@ class MemoryMappedLightDriver {
 }
 
 LightScheduler --> LightControllerInterface
-LightControllerInterface <|.. LightController:<<implementes>>
+LightControllerInterface <|.. LightController:<<implements>>
 LightController --> LightDriverInterface
 LightDriverInterface <|.. LightDriverSpy:<<implements>>
-LightDriverInterface <|.. X10LightDriver:<<implementes>>
-LightDriverInterface <|.. AcmeWirelessLightDriver:<<implementes>>
-LightDriverInterface <|.. MemoryMappedLightDriver:<<implementes>>
+LightDriverInterface <|.. X10LightDriver:<<implements>>
+LightDriverInterface <|.. AcmeWirelessLightDriver:<<implements>>
+LightDriverInterface <|.. MemoryMappedLightDriver:<<implements>>
 
 @enduml
 ```
